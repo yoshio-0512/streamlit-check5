@@ -1,28 +1,4 @@
 import streamlit as st
-
-# --- パスワード認証機能を追加 ---
-# 正しいパスワードを設定
-PASSWORD = "nikomarukun"
-
-# セッションステートを使用してログイン状態を管理
-if "logged_in" not in st.session_state:
-    st.session_state.logged_in = False
-
-# ログインフォーム
-if not st.session_state.logged_in:
-    st.title("ログイン")
-    password = st.text_input("パスワードを入力してください", type="password")
-    if st.button("ログイン"):
-        if password == PASSWORD:
-            st.session_state.logged_in = True
-            st.success("ログイン成功！")
-        else:
-            st.error("パスワードが間違っています")
-    st.stop()  # 認証が成功するまで、それ以降のコードを実行しない
-# --- ここまで認証機能 ---
-
-
-import streamlit as st
 from ultralytics import YOLO
 from PIL import Image, ImageDraw, ImageOps, ExifTags
 import numpy as np
